@@ -1,0 +1,51 @@
+@model IEnumerable<Student>
+@{
+    ViewData["Title"] = "Danh sách sinh viên";
+}
+
+<div class="page-head">
+    <div>
+        <h1>Quản lý sinh viên</h1>
+        <p>ASP.NET Core MVC + Entity Framework Core</p>
+    </div>
+    <a class="btn primary" asp-action="Create">+ Thêm sinh viên</a>
+</div>
+
+<div class="card">
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Họ tên</th>
+                <th>Tuổi</th>
+                <th>Email</th>
+                <th>Ngành học</th>
+                <th>Thao tác</th>
+            </tr>
+        </thead>
+        <tbody>
+        @if (!Model.Any())
+        {
+            <tr><td colspan="6" class="empty">Chưa có sinh viên. Hãy thêm sinh viên đầu tiên.</td></tr>
+        }
+        else
+        {
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td><strong>@item.Name</strong></td>
+                    <td>@item.Age</td>
+                    <td>@item.Email</td>
+                    <td>@item.Major</td>
+                    <td class="actions">
+                        <a asp-action="Details" asp-route-id="@item.Id">Xem</a>
+                        <a asp-action="Edit" asp-route-id="@item.Id">Sửa</a>
+                        <a class="danger-text" asp-action="Delete" asp-route-id="@item.Id">Xóa</a>
+                    </td>
+                </tr>
+            }
+        }
+        </tbody>
+    </table>
+</div>

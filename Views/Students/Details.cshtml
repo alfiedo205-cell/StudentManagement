@@ -1,0 +1,16 @@
+@model Student
+@{
+    ViewData["Title"] = "Chi tiết sinh viên";
+}
+<h1>Chi tiết sinh viên</h1>
+<div class="detail-card">
+    <p><span>ID</span><strong>@Model.Id</strong></p>
+    <p><span>Họ tên</span><strong>@Model.Name</strong></p>
+    <p><span>Tuổi</span><strong>@Model.Age</strong></p>
+    <p><span>Email</span><strong>@Model.Email</strong></p>
+    <p><span>Ngành học</span><strong>@Model.Major</strong></p>
+    <div class="form-actions">
+        <a class="btn primary" asp-action="Edit" asp-route-id="@Model.Id">Sửa</a>
+        <a class="btn" asp-action="Index">Quay lại</a>
+    </div>
+</div>

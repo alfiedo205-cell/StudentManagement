@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Student Management</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+    <header class="topbar">
+        <div class="container nav">
+            <a class="brand" asp-controller="Students" asp-action="Index">Student Management</a>
+            <a class="nav-link" asp-controller="Students" asp-action="Index">Danh sách sinh viên</a>
+            <a class="nav-link add" asp-controller="Students" asp-action="Create">+ Thêm sinh viên</a>
+        </div>
+    </header>
+    <main class="container main-content">
+        @RenderBody()
+    </main>
+    <footer class="footer">Bài tập ORM - Entity Framework</footer>
+</body>
+</html>
